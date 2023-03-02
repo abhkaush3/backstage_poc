@@ -27,6 +27,8 @@ import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoneyIcon from '@material-ui/icons/MonetizationOn';
+import AccountTree from '@material-ui/icons/AccountTree';
+
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import { GraphiQLIcon } from '@backstage/plugin-graphiql';
@@ -61,6 +63,7 @@ import DomainIcon from '@material-ui/icons/Apartment';
 import ResourceIcon from '@material-ui/icons/Work';
 import SystemIcon from '@material-ui/icons/Category';
 import UserIcon from '@material-ui/icons/Person';
+import CategoryIcon from '@material-ui/icons/Category';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -148,6 +151,11 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
           pluralTitle="My Squads"
           icon={GroupIcon}
         />
+
+        {/* <SidebarItem icon={CategoryIcon} to="catalog" text="Catalog" /> */}
+
+        {/* <SidebarItem icon={AccountTree} to="my-awesome-plugin" text="Workflow" /> */}
+        <SidebarItem icon={CategoryIcon} to="catalog" text="Catalog" />
         <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
         <SidebarItem icon={PlaylistPlayIcon} to="playlist" text="Playlists" />

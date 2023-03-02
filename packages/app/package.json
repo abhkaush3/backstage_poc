@@ -45,6 +45,7 @@
     "@backstage/plugin-linguist": "workspace:^",
     "@backstage/plugin-linguist-common": "workspace:^",
     "@backstage/plugin-microsoft-calendar": "workspace:^",
+    "@backstage/plugin-my-awesome-plugin": "^0.0.0",
     "@backstage/plugin-newrelic": "workspace:^",
     "@backstage/plugin-newrelic-dashboard": "workspace:^",
     "@backstage/plugin-org": "workspace:^",

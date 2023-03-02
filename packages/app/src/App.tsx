@@ -109,6 +109,8 @@ import { PlaylistIndexPage } from '@backstage/plugin-playlist';
 import { TwoColumnLayout } from './components/scaffolder/customScaffolderLayouts';
 import { ScoreBoardPage } from '@oriflame/backstage-plugin-score-card';
 import { StackstormPage } from '@backstage/plugin-stackstorm';
+import { githubAuthApiRef } from '@backstage/core-plugin-api';
+import { MyAwesomePluginPage } from '@backstage/plugin-my-awesome-plugin';
 
 const app = createApp({
   apis,
@@ -122,16 +124,18 @@ const app = createApp({
   // { name: 'tech-radar', description: 'Enables the tech radar plugin' },
   // ],
   components: {
-    SignInPage: props => {
-      return (
-        <SignInPage
-          {...props}
-          providers={['guest', 'custom', ...providers]}
-          title="Select a sign-in method"
-          align="center"
-        />
-      );
-    },
+    SignInPage: props => (
+      <SignInPage
+        {...props}
+        auto
+        provider={{
+          id: 'github-auth-provider',
+          title: 'GitHub',
+          message: 'Sign in using GitHub',
+          apiRef: githubAuthApiRef,
+        }}
+      />
+    ),
   },
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
@@ -283,6 +287,7 @@ const routes = (
     <Route path="/playlist" element={<PlaylistIndexPage />} />
     <Route path="/score-board" element={<ScoreBoardPage />} />
     <Route path="/stackstorm" element={<StackstormPage />} />
+    <Route path="/my-awesome-plugin" element={<MyAwesomePluginPage />} />
   </FlatRoutes>
 );
 

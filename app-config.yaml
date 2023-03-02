@@ -31,8 +31,19 @@ backend:
   listen:
     port: 7007
   database:
-    client: better-sqlite3
-    connection: ':memory:'
+    # client: better-sqlite3
+    # connection: ':memory:'
+    # config options: https://node-postgres.com/apis/client
+    client: pg
+    connection:
+      host: 127.0.0.1
+      port: 5432
+      user: postgres
+      password: secret
+      # https://node-postgres.com/features/ssl
+      #ssl: require # see https://www.postgresql.org/docs/current/libpq-ssl.html Table 33.1. SSL Mode Descriptions (e.g. require)
+        #ca: # if you have a CA file and want to verify it you can uncomment this section
+        #$file: <file-path>/ca/server.crt
   cache:
     store: memory
   cors:
@@ -133,7 +144,7 @@ organization:
 techdocs:
   builder: 'local' # Alternatives - 'external'
   generator:
-    runIn: 'docker'
+    runIn: 'local' # originally it was 'docker'
     # dockerImage: my-org/techdocs # use a custom docker image
     # pullImage: true # or false to disable automatic pulling of image (e.g. if custom docker login is required)
   publisher:
@@ -179,7 +190,7 @@ allure:
 integrations:
   github:
     - host: github.com
-      token: ${GITHUB_TOKEN}
+      token: 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
   ### Example for how to add your GitHub Enterprise instance using the API:
   # - host: ghe.example.net
   #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -308,8 +319,8 @@ auth:
         clientSecret: ${AUTH_GOOGLE_CLIENT_SECRET}
     github:
       development:
-        clientId: ${AUTH_GITHUB_CLIENT_ID}
-        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+        clientId: e973387114652e3f4c34
+        clientSecret: 6af779d48c9dc445ab9c39e068468fc4c0e163cb
         enterpriseInstanceUrl: ${AUTH_GITHUB_ENTERPRISE_INSTANCE_URL}
     gitlab:
       development:
